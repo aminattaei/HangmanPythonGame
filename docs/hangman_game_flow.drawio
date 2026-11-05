@@ -1,0 +1,109 @@
+<mxfile host="65bd71144e">
+    <diagram id="hangman-flow" name="Hangman Flow">
+        <mxGraphModel dx="2472" dy="1753" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="700" pageHeight="860" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="A" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#444441;fontSize=13;" value="&lt;b&gt;انتخاب دسته‌بندی&lt;/b&gt;&lt;br&gt;CATEGORY_SELECT" vertex="1">
+                    <mxGeometry height="52" width="220" x="230" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="NOTE" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#5F5E5A;fontColor=#444441;fontSize=12;" value="&lt;b&gt;دکمه «جدید»&lt;/b&gt;&lt;br&gt;از هر وضعیت، بازگشت" vertex="1">
+                    <mxGeometry height="52" width="150" x="490" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="B" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#444441;fontSize=13;" value="&lt;b&gt;انتخاب تصادفی کلمه&lt;/b&gt;&lt;br&gt;بدون تکرار در همین جلسه" vertex="1">
+                    <mxGeometry height="52" width="220" x="230" y="112" as="geometry"/>
+                </mxCell>
+                <mxCell id="C" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#444441;fontSize=13;" value="&lt;b&gt;نمایش کلمه پنهان&lt;/b&gt;&lt;br&gt;هر حرف ناشناخته: -" vertex="1">
+                    <mxGeometry height="52" width="220" x="230" y="194" as="geometry"/>
+                </mxCell>
+                <mxCell id="D" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#444441;fontSize=13;" value="&lt;b&gt;دریافت یک حرف&lt;/b&gt;&lt;br&gt;PLAYING" vertex="1">
+                    <mxGeometry height="52" width="220" x="230" y="276" as="geometry"/>
+                </mxCell>
+                <mxCell id="E" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;fontSize=13;" value="&lt;b&gt;ورودی معتبر است؟&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="80" width="200" x="240" y="358" as="geometry"/>
+                </mxCell>
+                <mxCell id="ERR" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#444441;fontSize=12;" value="&lt;b&gt;پیام خطا / هشدار&lt;/b&gt;&lt;br&gt;بدون کم شدن فرصت" vertex="1">
+                    <mxGeometry height="52" width="150" x="490" y="372" as="geometry"/>
+                </mxCell>
+                <mxCell id="F" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;fontSize=13;" value="&lt;b&gt;حرف در کلمه هست؟&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="80" width="200" x="240" y="468" as="geometry"/>
+                </mxCell>
+                <mxCell id="L" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;fontSize=12;" value="&lt;b&gt;آشکار شدن حرف&lt;/b&gt;&lt;br&gt;در تمام جاهای کلمه" vertex="1">
+                    <mxGeometry height="52" width="150" x="40" y="482" as="geometry"/>
+                </mxCell>
+                <mxCell id="R" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;fontSize=12;" value="&lt;b&gt;کم شدن یک فرصت&lt;/b&gt;&lt;br&gt;تصویر یک مرحله جلو" vertex="1">
+                    <mxGeometry height="52" width="150" x="490" y="482" as="geometry"/>
+                </mxCell>
+                <mxCell id="G" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;fontSize=13;" value="&lt;b&gt;کلمه کامل شد؟&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="80" width="200" x="240" y="598" as="geometry"/>
+                </mxCell>
+                <mxCell id="SW" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;fontSize=12;" value="&lt;b&gt;برد مرحله&lt;/b&gt;&lt;br&gt;STAGE_WON" vertex="1">
+                    <mxGeometry height="52" width="150" x="490" y="612" as="geometry"/>
+                </mxCell>
+                <mxCell id="I" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;fontSize=13;" value="&lt;b&gt;فرصت‌ها تمام شد؟&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="80" width="200" x="240" y="708" as="geometry"/>
+                </mxCell>
+                <mxCell id="GO" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;fontSize=12;" value="&lt;b&gt;بازی تمام شد&lt;/b&gt;&lt;br&gt;GAME_OVER&lt;br&gt;نمایش امتیاز کل" vertex="1">
+                    <mxGeometry height="64" width="150" x="490" y="716" as="geometry"/>
+                </mxCell>
+                <mxCell id="eNOTE" edge="1" parent="1" source="NOTE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=block;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="A" value=""/>
+                <mxCell id="eAB" edge="1" parent="1" source="A" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B" value=""/>
+                <mxCell id="eBC" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="C" value=""/>
+                <mxCell id="eCD" edge="1" parent="1" source="C" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D" value=""/>
+                <mxCell id="eDE" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="E" value=""/>
+                <mxCell id="eEERR" edge="1" parent="1" source="E" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="ERR" value="خیر"/>
+                <mxCell id="eERRD" edge="1" parent="1" source="ERR" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="D" value=""/>
+                <mxCell id="eEF" edge="1" parent="1" source="E" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" target="F" value="بله"/>
+                <mxCell id="eFL" edge="1" parent="1" source="F" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="L" value="بله"/>
+                <mxCell id="eFR" edge="1" parent="1" source="F" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="R" value="خیر"/>
+                <mxCell id="eLG" edge="1" parent="1" source="L" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="G" value="">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="115" y="568"/>
+                            <mxPoint x="340" y="568"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eRG" edge="1" parent="1" source="R" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="G" value="">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="565" y="568"/>
+                            <mxPoint x="340" y="568"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eGSW" edge="1" parent="1" source="G" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="SW" value="بله"/>
+                <mxCell id="eSWB" edge="1" parent="1" source="SW" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="B" value="امتیاز جمع، کلمه جدید">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="665" y="638"/>
+                            <mxPoint x="665" y="138"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eGI" edge="1" parent="1" source="G" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" target="I" value="خیر"/>
+                <mxCell id="eIGO" edge="1" parent="1" source="I" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="GO" value="بله"/>
+                <mxCell id="eID" edge="1" parent="1" source="I" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="D" value="خیر">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="18" y="748"/>
+                            <mxPoint x="18" y="302"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#444441;fontSize=11;" value="مرحله عادی" vertex="1">
+                    <mxGeometry height="24" width="100" x="40" y="810" as="geometry"/>
+                </mxCell>
+                <mxCell id="lg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;fontSize=11;" value="تصمیم" vertex="1">
+                    <mxGeometry height="24" width="100" x="160" y="810" as="geometry"/>
+                </mxCell>
+                <mxCell id="lg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#085041;fontSize=11;" value="پیروزی / حدس درست" vertex="1">
+                    <mxGeometry height="24" width="130" x="280" y="810" as="geometry"/>
+                </mxCell>
+                <mxCell id="lg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAECE7;strokeColor=#993C1D;fontColor=#712B13;fontSize=11;" value="اشتباه / باخت" vertex="1">
+                    <mxGeometry height="24" width="110" x="430" y="810" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
