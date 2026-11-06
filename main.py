@@ -61,7 +61,7 @@ def select_category():
 
 def select_word():
     category_obj = select_category().capitalize()
-    return WORDS[category_obj][randint(0,10)]
+    return WORDS[category_obj][randint(0,9)] 
 
 
 def validate_char_input_from_user():
@@ -90,3 +90,4 @@ def check_guess_left():
 
 print(validate_char_input_from_user())
 
+print(check_guess_left())
