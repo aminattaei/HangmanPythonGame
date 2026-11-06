@@ -65,7 +65,6 @@ def select_word():
 
 
 def validate_char_input_from_user():
-    guess_left = 10
     vowels = ['a','i','o','u','e']
     user_correct_guess_char = []
 
@@ -76,15 +75,16 @@ def validate_char_input_from_user():
         if user_char_input == char:
             user_correct_guess_char.append(char)
         elif user_char_input in vowels:
-            return (True,"In the vowels")
+            return True
         else:
-            guess_left -= 1
+            return False
 
         return user_correct_guess_char
             
 
 
 def check_guess_left():
+    guess_left = 10
     pass
 
 
