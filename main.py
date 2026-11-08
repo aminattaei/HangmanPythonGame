@@ -1,93 +1,66 @@
-import os
-os.system("clear")
+import random
 
-from random import randint
-
-
+MAX_WRONG, VOWELS = 10, set("aeiou")
 WORDS = {
-    "Animals": [
-        "elephant", "giraffe", "penguin", "dolphin", "kangaroo",
-        "crocodile", "butterfly", "squirrel", "leopard", "hamster",
-    ],
-    "Fruits & Vegetables": [
-        "banana", "orange", "strawberry", "pineapple", "cucumber",
-        "broccoli", "cabbage", "pumpkin", "tomato", "cherry",
-    ],
-    "Food & Drinks": [
-        "pizza", "burger", "sandwich", "chocolate", "pancake",
-        "spaghetti", "coffee", "lemonade", "omelette", "popcorn",
-    ],
-    "Jobs": [
-        "dentist", "teacher", "engineer", "doctor", "farmer",
-        "pilot", "plumber", "firefighter", "journalist", "architect",
-    ],
-    "Countries": [
-        "canada", "brazil", "germany", "japan", "france",
-        "mexico", "norway", "portugal", "australia", "argentina",
-    ],
-    "Sports": [
-        "football", "tennis", "swimming", "volleyball", "cycling",
-        "boxing", "archery", "wrestling", "baseball", "badminton",
-    ],
-    "Colors & Shapes": [
-        "purple", "yellow", "orange", "circle", "triangle",
-        "rectangle", "diamond", "crimson", "silver", "hexagon",
-    ],
-    "Household Items": [
-        "pillow", "blanket", "kitchen", "curtain", "mirror",
-        "window", "blender", "bookshelf", "carpet", "umbrella",
-    ],
-    "Nature": [
-        "mountain", "river", "volcano", "forest", "desert",
-        "waterfall", "rainbow", "thunder", "island", "glacier",
-    ],
-    "Technology": [
-        "computer", "keyboard", "internet", "software", "battery",
-        "monitor", "printer", "website", "program", "network",
-    ],
+    "Animals": ["elephant", "giraffe", "penguin", "dolphin"],
+    "Jobs": ["dentist", "teacher", "engineer", "pilot"],
+    "Countries": ["canada", "brazil", "germany", "japan"],
 }
 
-# لیست نام دسته‌بندی‌ها (برای صفحه‌ی انتخاب دسته)
-CATEGORIES = str(list(WORDS.keys())).lower()
 
-def select_category():
+
+# انتخاب دسته با شماره
+def choose_category():
+    names = list(WORDS)
+    for i, name in enumerate(names, 1):
+        print(f"{i}. {name}")
     while True:
-        user_category_choose =input(f"Please select one category from below:\n {CATEGORIES}\nEnter your choose: ")
+        choice = input("Category number: ").strip()
+        if choice.isdigit() and 1 <= int(choice) <= len(names):
+            return names[int(choice) - 1]
 
-        if user_category_choose in CATEGORIES:
-            return user_category_choose
+
+# ساخت کلمه‌ی پنهان
+def mask(word, guessed):
+    return "".join(c if c in guessed else "-" for c in word)
+
+# ورودی و اعتبارسنجی
+def read_guess(guessed):
+    while True:
+        g = input("Guess a letter: ").strip().lower()
+        if len(g) != 1 or not (g.isascii() and g.isalpha()):
+            print("Enter exactly one English letter.")
+        elif g in guessed:
+            print("Already guessed (or a revealed vowel).")
         else:
-            print("Your should select one category!")
+            return g
 
-def select_word():
-    category_obj = select_category().capitalize()
-    return WORDS[category_obj][randint(0,9)] 
+# یک مرحله
+def play_stage(word):
+    guessed, wrong = set(VOWELS), []        # vowels are revealed from the start
+    while len(wrong) < MAX_WRONG and mask(word, guessed) != word:
+        print(f"\n{mask(word, guessed)}  wrong: {wrong}  left: {MAX_WRONG - len(wrong)}")
+        g = read_guess(guessed)
+        guessed.add(g)
+        if g not in word:
+            wrong.append(g)
+    return len(wrong)
 
+# کل بازی و امتیاز
+def play_game():
+    words = WORDS[choose_category()][:]
+    random.shuffle(words)                   # no repeated words in a session
+    score = 0
+    for stage, word in enumerate(words, 1):
+        wrong = play_stage(word)
+        if wrong >= MAX_WRONG:
+            print(f"Game over! The word was '{word}'.")
+            break
+        points = 100 + (MAX_WRONG - wrong) * 10
+        score += points
+        print(f"Stage {stage} won! +{points} points (total {score})")
+    print(f"Final score: {score}")
 
-def validate_char_input_from_user():
-    vowels = ['a','i','o','u','e']
-    user_correct_guess_char = []
-
-    word_seperated_char = [char for char in select_word()]
-    user_char_input = input("Enter your guess character: ")
-
-    for char in word_seperated_char:
-        if user_char_input == char:
-            user_correct_guess_char.append(char)
-        elif user_char_input in vowels:
-            return True
-        else:
-            return False
-
-        return user_correct_guess_char
-            
-
-
-def check_guess_left():
-    guess_left = 10
-    pass
-
-
-print(validate_char_input_from_user())
-
-print(check_guess_left())
+if __name__ == "__main__":
+    while input("\nPress Enter to play (q to quit): ").strip().lower() != "q":
+        play_game()
